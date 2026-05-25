@@ -1,8 +1,10 @@
 ﻿# Virtual environment
 rf_env/
 
-# Large data files
-data/raw/
+# Large data files — raw training sets too big for GitHub
+data/raw/train_*.txt
+data/raw/test_*.txt
+data/raw/secom.data
 data/processed/*.parquet
 data/synthetic/
 
@@ -25,8 +27,3 @@ __pycache__/
 # OS files
 .DS_Store
 Thumbs.db
-
-# Keep empty folders
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-!models/.gitkeep
