@@ -1,0 +1,32 @@
+﻿# Virtual environment
+rf_env/
+
+# Large data files
+data/raw/
+data/processed/*.parquet
+data/synthetic/
+
+# Large model files
+models/*.pkl
+models/*.pt
+
+# MLflow runs
+mlruns/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Keep empty folders
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!models/.gitkeep
