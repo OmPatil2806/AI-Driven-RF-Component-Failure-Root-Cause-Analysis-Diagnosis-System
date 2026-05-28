@@ -1,0 +1,9 @@
+{
+  "model_name": "xgb_classifier_ai4i",
+  "model_type": "xgboost_multiclass",
+  "is_trained": true,
+  "train_score": 0.991694,
+  "val_score": 0.947683,
+  "training_time": 7.04,
+  "saved_at": "2026-05-18T00:15:38.479642"
+}
