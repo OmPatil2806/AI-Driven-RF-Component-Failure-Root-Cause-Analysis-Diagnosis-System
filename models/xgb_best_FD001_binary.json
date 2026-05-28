@@ -1,0 +1,9 @@
+{
+  "model_name": "xgb_best_FD001_binary",
+  "model_type": "xgboost_multiclass",
+  "is_trained": true,
+  "train_score": 0.999455,
+  "val_score": 0.958855,
+  "training_time": 4.34,
+  "saved_at": "2026-05-22T15:49:36.153837"
+}
