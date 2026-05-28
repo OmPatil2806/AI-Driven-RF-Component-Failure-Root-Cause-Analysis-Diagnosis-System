@@ -1,0 +1,9 @@
+{
+  "model_name": "xgb_classifier",
+  "model_type": "xgboost_multiclass",
+  "is_trained": true,
+  "train_score": 0.973393,
+  "val_score": 0.952125,
+  "training_time": 1.79,
+  "saved_at": "2026-05-18T00:15:27.548804"
+}
