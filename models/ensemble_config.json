@@ -1,0 +1,15 @@
+{
+  "model_name": "ensemble",
+  "xgb_weight": 0.55,
+  "cnn_weight": 0.45,
+  "xgb_val_f1": 0.952125,
+  "cnn_val_acc": 0.866613,
+  "ensemble_val_f1": 0.946551,
+  "classes_": [
+    "pass",
+    "sensor_degradation"
+  ],
+  "n_classes": 2,
+  "is_trained": true,
+  "saved_at": "2026-05-18T21:22:57.198475"
+}
