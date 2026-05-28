@@ -1,0 +1,13 @@
+{
+  "model_name": "cnn1d_model",
+  "model_type": "pytorch_1d_cnn",
+  "is_trained": true,
+  "train_score": 0.939158,
+  "val_score": 0.866613,
+  "training_time": 147.48,
+  "window_size": 30,
+  "n_sensors": 14,
+  "n_classes": 2,
+  "n_epochs": 30,
+  "saved_at": "2026-05-18T18:56:51.479118"
+}
