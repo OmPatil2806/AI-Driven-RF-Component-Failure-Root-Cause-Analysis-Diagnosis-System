@@ -5,10 +5,6 @@ rf_env/
 data/processed/*.parquet
 data/synthetic/
 
-# Large model files
-models/*.pkl
-models/*.pt
-
 # MLflow runs
 mlruns/
 
