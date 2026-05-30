@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 700px;
+                 background-color: #0d0d0d;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#378ADD", "font": {"color": "white"}, "id": "s11_pressure_drop", "label": "HPC Pressure Drop", "shape": "dot", "size": 29, "title": "HPC outlet static pressure below normal range"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "s9_speed_reduction", "label": "Core Speed Reduction", "shape": "dot", "size": 29, "title": "Core speed dropping below design point"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "s4_temp_rise", "label": "LPT Temperature Rise", "shape": "dot", "size": 26, "title": "LPT outlet temperature above normal"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "s3_temp_rise", "label": "HPC Temperature Rise", "shape": "dot", "size": 26, "title": "HPC outlet temperature increasing"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "s14_speed_drift", "label": "Corrected Core Speed Drift", "shape": "dot", "size": 26, "title": "Corrected core speed deviating from baseline"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "s8_fan_speed_drop", "label": "Fan Speed Reduction", "shape": "dot", "size": 26, "title": "Physical fan speed below normal"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "s13_fan_corrected_drop", "label": "Corrected Fan Speed Drop", "shape": "dot", "size": 26, "title": "Corrected fan speed drifting"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "s21_coolant_drop", "label": "LPT Coolant Bleed Reduction", "shape": "dot", "size": 26, "title": "LPT coolant bleed flow decreasing"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "s15_bypass_drop", "label": "Bypass Ratio Reduction", "shape": "dot", "size": 26, "title": "Engine bypass ratio below specification"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "hdf_heat_dissipation", "label": "Heat Dissipation Failure", "shape": "dot", "size": 26, "title": "Machine overheating \u2014 cannot cool fast enough"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "pwf_power_failure", "label": "Power Failure", "shape": "dot", "size": 26, "title": "Machine receives wrong power level for speed"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "osf_overstrain", "label": "Overstrain Failure", "shape": "dot", "size": 26, "title": "Machine pushed beyond physical limit"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "twf_tool_wear", "label": "Tool Wear Failure", "shape": "dot", "size": 23, "title": "Tool used beyond safe wear limit"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "rnf_random", "label": "Random Failure", "shape": "dot", "size": 23, "title": "Unexplained random failure"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "secom_process_drift", "label": "Process Parameter Drift", "shape": "dot", "size": 23, "title": "Semiconductor manufacturing parameter out of control"}, {"color": "#378ADD", "font": {"color": "white"}, "id": "secom_contamination", "label": "Contamination Event", "shape": "dot", "size": 23, "title": "Process contamination detected in sensor cluster"}, {"color": "#D85A30", "font": {"color": "white"}, "id": "bearing_wear", "label": "Bearing Wear", "shape": "dot", "size": 44, "title": "Engine bearing degrading \u2014 increases friction and heat"}, {"color": "#D85A30", "font": {"color": "white"}, "id": "blade_fouling", "label": "Compressor Blade Fouling", "shape": "dot", "size": 41, "title": "Deposits on compressor blades reducing efficiency"}, {"color": "#D85A30", "font": {"color": "white"}, "id": "thermal_stress", "label": "Thermal Stress", "shape": "dot", "size": 38, "title": "Excessive heat causing component deformation"}, {"color": "#D85A30", "font": {"color": "white"}, "id": "cooling_degradation", "label": "Cooling System Degradation", "shape": "dot", "size": 35, "title": "Coolant flow reduced \u2014 thermal protection failing"}, {"color": "#D85A30", "font": {"color": "white"}, "id": "fuel_system_fault", "label": "Fuel System Fault", "shape": "dot", "size": 29, "title": "Fuel delivery irregularity affecting combustion"}, {"color": "#D85A30", "font": {"color": "white"}, "id": "seal_degradation", "label": "Seal Degradation", "shape": "dot", "size": 35, "title": "Internal seals worn \u2014 causing pressure leakage"}, {"color": "#D85A30", "font": {"color": "white"}, "id": "connector_fault", "label": "RF Connector Fault", "shape": "dot", "size": 29, "title": "Connector impedance mismatch or physical damage"}, {"color": "#D85A30", "font": {"color": "white"}, "id": "overheating", "label": "System Overheating", "shape": "dot", "size": 32, "title": "Thermal management failure \u2014 temperature exceeding limits"}, {"color": "#D85A30", "font": {"color": "white"}, "id": "power_supply_fault", "label": "Power Supply Fault", "shape": "dot", "size": 26, "title": "Voltage or current outside specification"}, {"color": "#D85A30", "font": {"color": "white"}, "id": "mechanical_overload", "label": "Mechanical Overload", "shape": "dot", "size": 29, "title": "Forces exceeding component design limits"}, {"color": "#D85A30", "font": {"color": "white"}, "id": "tool_end_of_life", "label": "Tool End of Life", "shape": "dot", "size": 26, "title": "Cutting tool has exceeded useful operating hours"}, {"color": "#D85A30", "font": {"color": "white"}, "id": "process_contamination", "label": "Process Contamination", "shape": "dot", "size": 35, "title": "Foreign material in manufacturing process"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "inspect_bearing", "label": "Inspect and Replace Bearing Assembly", "shape": "dot", "size": 29, "title": "Remove and inspect bearing \u2014 replace if worn beyond limit"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "clean_compressor_blades", "label": "Clean Compressor Blades", "shape": "dot", "size": 23, "title": "Water wash or chemical clean compressor stage"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "check_cooling_system", "label": "Check Cooling System", "shape": "dot", "size": 29, "title": "Inspect coolant flow, check for blockages, verify pump operation"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "replace_seals", "label": "Replace Internal Seals", "shape": "dot", "size": 23, "title": "Replace worn seals in affected stage"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "check_fuel_system", "label": "Inspect Fuel Delivery System", "shape": "dot", "size": 23, "title": "Check fuel nozzles, filters, and pump pressure"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "thermal_inspection", "label": "Thermal Inspection", "shape": "dot", "size": 29, "title": "Infrared scan to identify hot spots and thermal anomalies"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "retorque_connector", "label": "Re-torque RF Connector", "shape": "dot", "size": 23, "title": "Re-torque SMA/N-type connector to spec (0.9 N\u00b7m)"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "replace_connector", "label": "Replace RF Connector", "shape": "dot", "size": 23, "title": "Replace damaged connector \u2014 clean mating surfaces"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "check_power_supply", "label": "Check Power Supply Rails", "shape": "dot", "size": 23, "title": "Verify DC supply voltages with DMM \u2014 check for ripple"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "reduce_load", "label": "Reduce Operating Load", "shape": "dot", "size": 26, "title": "Reduce speed or torque to within design envelope"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "replace_tool", "label": "Replace Cutting Tool", "shape": "dot", "size": 23, "title": "Install new cutting tool \u2014 verify torque and alignment"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "process_audit", "label": "Process Environment Audit", "shape": "dot", "size": 23, "title": "Full audit of process parameters \u2014 check for contamination"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "retest_at_ambient", "label": "Retest at 25\u00b0C Ambient", "shape": "dot", "size": 29, "title": "Retest component at controlled ambient \u2014 isolate thermal drift"}, {"color": "#1D9E75", "font": {"color": "white"}, "id": "escalate_to_engineering", "label": "Escalate to Engineering Team", "shape": "dot", "size": 23, "title": "Random failure \u2014 log incident and escalate for root cause analysis"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "s11_pressure_drop", "title": "weight: 0.85", "to": "bearing_wear", "width": 2.55}, {"arrows": "to", "from": "s11_pressure_drop", "title": "weight: 0.75", "to": "seal_degradation", "width": 2.25}, {"arrows": "to", "from": "s11_pressure_drop", "title": "weight: 0.70", "to": "connector_fault", "width": 2.0999999999999996}, {"arrows": "to", "from": "s9_speed_reduction", "title": "weight: 0.80", "to": "bearing_wear", "width": 2.4000000000000004}, {"arrows": "to", "from": "s9_speed_reduction", "title": "weight: 0.65", "to": "blade_fouling", "width": 1.9500000000000002}, {"arrows": "to", "from": "s9_speed_reduction", "title": "weight: 0.60", "to": "fuel_system_fault", "width": 1.7999999999999998}, {"arrows": "to", "from": "s4_temp_rise", "title": "weight: 0.85", "to": "thermal_stress", "width": 2.55}, {"arrows": "to", "from": "s4_temp_rise", "title": "weight: 0.80", "to": "cooling_degradation", "width": 2.4000000000000004}, {"arrows": "to", "from": "s3_temp_rise", "title": "weight: 0.75", "to": "thermal_stress", "width": 2.25}, {"arrows": "to", "from": "s3_temp_rise", "title": "weight: 0.60", "to": "blade_fouling", "width": 1.7999999999999998}, {"arrows": "to", "from": "s14_speed_drift", "title": "weight: 0.70", "to": "bearing_wear", "width": 2.0999999999999996}, {"arrows": "to", "from": "s14_speed_drift", "title": "weight: 0.55", "to": "seal_degradation", "width": 1.6500000000000001}, {"arrows": "to", "from": "s8_fan_speed_drop", "title": "weight: 0.75", "to": "bearing_wear", "width": 2.25}, {"arrows": "to", "from": "s8_fan_speed_drop", "title": "weight: 0.65", "to": "blade_fouling", "width": 1.9500000000000002}, {"arrows": "to", "from": "s13_fan_corrected_drop", "title": "weight: 0.65", "to": "blade_fouling", "width": 1.9500000000000002}, {"arrows": "to", "from": "s13_fan_corrected_drop", "title": "weight: 0.55", "to": "bearing_wear", "width": 1.6500000000000001}, {"arrows": "to", "from": "s21_coolant_drop", "title": "weight: 0.85", "to": "cooling_degradation", "width": 2.55}, {"arrows": "to", "from": "s21_coolant_drop", "title": "weight: 0.70", "to": "thermal_stress", "width": 2.0999999999999996}, {"arrows": "to", "from": "s15_bypass_drop", "title": "weight: 0.80", "to": "seal_degradation", "width": 2.4000000000000004}, {"arrows": "to", "from": "s15_bypass_drop", "title": "weight: 0.60", "to": "blade_fouling", "width": 1.7999999999999998}, {"arrows": "to", "from": "hdf_heat_dissipation", "title": "weight: 0.95", "to": "overheating", "width": 2.8499999999999996}, {"arrows": "to", "from": "hdf_heat_dissipation", "title": "weight: 0.80", "to": "cooling_degradation", "width": 2.4000000000000004}, {"arrows": "to", "from": "pwf_power_failure", "title": "weight: 0.90", "to": "power_supply_fault", "width": 2.7}, {"arrows": "to", "from": "pwf_power_failure", "title": "weight: 0.70", "to": "fuel_system_fault", "width": 2.0999999999999996}, {"arrows": "to", "from": "osf_overstrain", "title": "weight: 0.90", "to": "mechanical_overload", "width": 2.7}, {"arrows": "to", "from": "osf_overstrain", "title": "weight: 0.65", "to": "bearing_wear", "width": 1.9500000000000002}, {"arrows": "to", "from": "twf_tool_wear", "title": "weight: 0.95", "to": "tool_end_of_life", "width": 2.8499999999999996}, {"arrows": "to", "from": "rnf_random", "title": "weight: 0.50", "to": "process_contamination", "width": 1.5}, {"arrows": "to", "from": "secom_process_drift", "title": "weight: 0.80", "to": "process_contamination", "width": 2.4000000000000004}, {"arrows": "to", "from": "secom_contamination", "title": "weight: 0.90", "to": "process_contamination", "width": 2.7}, {"arrows": "to", "from": "bearing_wear", "title": "weight: 0.95", "to": "inspect_bearing", "width": 2.8499999999999996}, {"arrows": "to", "from": "bearing_wear", "title": "weight: 0.60", "to": "retest_at_ambient", "width": 1.7999999999999998}, {"arrows": "to", "from": "blade_fouling", "title": "weight: 0.90", "to": "clean_compressor_blades", "width": 2.7}, {"arrows": "to", "from": "blade_fouling", "title": "weight: 0.50", "to": "inspect_bearing", "width": 1.5}, {"arrows": "to", "from": "thermal_stress", "title": "weight: 0.90", "to": "thermal_inspection", "width": 2.7}, {"arrows": "to", "from": "thermal_stress", "title": "weight: 0.85", "to": "check_cooling_system", "width": 2.55}, {"arrows": "to", "from": "thermal_stress", "title": "weight: 0.75", "to": "retest_at_ambient", "width": 2.25}, {"arrows": "to", "from": "cooling_degradation", "title": "weight: 0.95", "to": "check_cooling_system", "width": 2.8499999999999996}, {"arrows": "to", "from": "cooling_degradation", "title": "weight: 0.80", "to": "thermal_inspection", "width": 2.4000000000000004}, {"arrows": "to", "from": "fuel_system_fault", "title": "weight: 0.90", "to": "check_fuel_system", "width": 2.7}, {"arrows": "to", "from": "seal_degradation", "title": "weight: 0.85", "to": "replace_seals", "width": 2.55}, {"arrows": "to", "from": "seal_degradation", "title": "weight: 0.65", "to": "retest_at_ambient", "width": 1.9500000000000002}, {"arrows": "to", "from": "connector_fault", "title": "weight: 0.90", "to": "retorque_connector", "width": 2.7}, {"arrows": "to", "from": "connector_fault", "title": "weight: 0.75", "to": "replace_connector", "width": 2.25}, {"arrows": "to", "from": "overheating", "title": "weight: 0.95", "to": "check_cooling_system", "width": 2.8499999999999996}, {"arrows": "to", "from": "overheating", "title": "weight: 0.90", "to": "thermal_inspection", "width": 2.7}, {"arrows": "to", "from": "overheating", "title": "weight: 0.80", "to": "reduce_load", "width": 2.4000000000000004}, {"arrows": "to", "from": "power_supply_fault", "title": "weight: 0.95", "to": "check_power_supply", "width": 2.8499999999999996}, {"arrows": "to", "from": "mechanical_overload", "title": "weight: 0.95", "to": "reduce_load", "width": 2.8499999999999996}, {"arrows": "to", "from": "mechanical_overload", "title": "weight: 0.70", "to": "inspect_bearing", "width": 2.0999999999999996}, {"arrows": "to", "from": "tool_end_of_life", "title": "weight: 0.95", "to": "replace_tool", "width": 2.8499999999999996}, {"arrows": "to", "from": "process_contamination", "title": "weight: 0.90", "to": "process_audit", "width": 2.7}, {"arrows": "to", "from": "process_contamination", "title": "weight: 0.70", "to": "escalate_to_engineering", "width": 2.0999999999999996}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"physics": {"barnesHut": {"gravitationalConstant": -8000, "springLength": 150}}, "nodes": {"font": {"size": 12}}, "edges": {"arrows": {"to": {"enabled": true}}, "smooth": {"type": "curvedCW"}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
