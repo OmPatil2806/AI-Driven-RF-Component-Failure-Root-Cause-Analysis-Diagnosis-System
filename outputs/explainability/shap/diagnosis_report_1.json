@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-05-22T18:24:50.586050",
+  "sample_idx": 1,
+  "predicted_class": "1",
+  "confidence_pct": 100.0,
+  "top_features": [
+    {
+      "feature": "s11",
+      "shap_value": -1.1694,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s12",
+      "shap_value": -0.4817,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s7",
+      "shap_value": -0.4759,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s15",
+      "shap_value": -0.4569,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s4",
+      "shap_value": -0.4314,
+      "direction": "toward_pass"
+    }
+  ],
+  "diagnosis": {
+    "primary_cause": "s11",
+    "secondary_cause": "s12",
+    "recommendation": "Investigate s11 \u2014 strongest failure signal (SHAP=-1.169)"
+  },
+  "rf_mapping": {
+    "s11": "HPC outlet static pressure (psia)",
+    "s12": "Ratio of fuel flow to Ps30 (pps/psia)",
+    "s7": "HPC outlet pressure (psia)",
+    "s15": "Bypass ratio",
+    "s4": "HPC outlet temperature (\u00b0R)"
+  },
+  "all_shap_values": {
+    "s2": -0.23464922606945038,
+    "s3": -0.20918220281600952,
+    "s4": -0.4314075708389282,
+    "s7": -0.4758526086807251,
+    "s8": -0.20023363828659058,
+    "s9": -0.15238600969314575,
+    "s11": -1.169382929801941,
+    "s12": -0.48170891404151917,
+    "s13": -0.33905887603759766,
+    "s14": -0.20110976696014404,
+    "s15": -0.45692846179008484,
+    "s17": -0.13717569410800934,
+    "s20": -0.3926752507686615,
+    "s21": -0.14022612571716309
+  }
+}

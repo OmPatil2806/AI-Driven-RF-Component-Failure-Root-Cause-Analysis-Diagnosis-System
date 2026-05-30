@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-05-22T18:24:50.609087",
+  "sample_idx": 4,
+  "predicted_class": "0",
+  "confidence_pct": 99.8,
+  "top_features": [
+    {
+      "feature": "s9",
+      "shap_value": -1.5425,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s14",
+      "shap_value": -1.4073,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s4",
+      "shap_value": 0.2212,
+      "direction": "toward_failure"
+    },
+    {
+      "feature": "s11",
+      "shap_value": -0.2163,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s13",
+      "shap_value": 0.1949,
+      "direction": "toward_failure"
+    }
+  ],
+  "diagnosis": {
+    "primary_cause": "s9",
+    "secondary_cause": "s14",
+    "recommendation": "Investigate s9 \u2014 strongest failure signal (SHAP=-1.542)"
+  },
+  "rf_mapping": {
+    "s9": "Physical core speed (rpm)",
+    "s14": "Corrected core speed (rpm)",
+    "s4": "HPC outlet temperature (\u00b0R)",
+    "s11": "HPC outlet static pressure (psia)",
+    "s13": "Corrected fan speed (rpm)"
+  },
+  "all_shap_values": {
+    "s2": 0.010191353037953377,
+    "s3": -0.03839731216430664,
+    "s4": 0.22123514115810394,
+    "s7": -0.04217660054564476,
+    "s8": 0.10965275764465332,
+    "s9": -1.5424931049346924,
+    "s11": -0.2162894755601883,
+    "s12": -0.13088823854923248,
+    "s13": 0.19491861760616302,
+    "s14": -1.4073388576507568,
+    "s15": -0.01865915022790432,
+    "s17": -0.020910315215587616,
+    "s20": -0.03770507499575615,
+    "s21": 0.06942974030971527
+  }
+}

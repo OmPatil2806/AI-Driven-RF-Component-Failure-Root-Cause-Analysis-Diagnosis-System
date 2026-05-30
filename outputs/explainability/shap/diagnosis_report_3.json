@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-05-22T18:24:50.602494",
+  "sample_idx": 3,
+  "predicted_class": "1",
+  "confidence_pct": 73.3,
+  "top_features": [
+    {
+      "feature": "s9",
+      "shap_value": -0.5486,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s14",
+      "shap_value": -0.2972,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s17",
+      "shap_value": -0.1912,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s8",
+      "shap_value": 0.165,
+      "direction": "toward_failure"
+    },
+    {
+      "feature": "s11",
+      "shap_value": -0.1528,
+      "direction": "toward_pass"
+    }
+  ],
+  "diagnosis": {
+    "primary_cause": "s9",
+    "secondary_cause": "s14",
+    "recommendation": "Investigate s9 \u2014 strongest failure signal (SHAP=-0.549)"
+  },
+  "rf_mapping": {
+    "s9": "Physical core speed (rpm)",
+    "s14": "Corrected core speed (rpm)",
+    "s17": "Bleed enthalpy",
+    "s8": "Physical fan speed (rpm)",
+    "s11": "HPC outlet static pressure (psia)"
+  },
+  "all_shap_values": {
+    "s2": -0.03207860514521599,
+    "s3": -0.0038879471831023693,
+    "s4": 0.13312171399593353,
+    "s7": 0.13764020800590515,
+    "s8": 0.16499286890029907,
+    "s9": -0.5486396551132202,
+    "s11": -0.1527508795261383,
+    "s12": 0.13163891434669495,
+    "s13": 0.1177593395113945,
+    "s14": -0.2972368597984314,
+    "s15": 0.03129913657903671,
+    "s17": -0.19117332994937897,
+    "s20": -0.10513787716627121,
+    "s21": -0.09279249608516693
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-05-22T18:24:50.579666",
+  "sample_idx": 0,
+  "predicted_class": "1",
+  "confidence_pct": 99.9,
+  "top_features": [
+    {
+      "feature": "s11",
+      "shap_value": -1.2351,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s15",
+      "shap_value": -0.439,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s20",
+      "shap_value": -0.347,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s3",
+      "shap_value": -0.3245,
+      "direction": "toward_pass"
+    },
+    {
+      "feature": "s2",
+      "shap_value": -0.2791,
+      "direction": "toward_pass"
+    }
+  ],
+  "diagnosis": {
+    "primary_cause": "s11",
+    "secondary_cause": "s15",
+    "recommendation": "Investigate s11 \u2014 strongest failure signal (SHAP=-1.235)"
+  },
+  "rf_mapping": {
+    "s11": "HPC outlet static pressure (psia)",
+    "s15": "Bypass ratio",
+    "s20": "HPT coolant bleed (lbm/s)",
+    "s3": "LPC outlet temperature (\u00b0R)",
+    "s2": "Fan inlet temperature (\u00b0R)"
+  },
+  "all_shap_values": {
+    "s2": -0.27914145588874817,
+    "s3": -0.32454630732536316,
+    "s4": -0.15353062748908997,
+    "s7": -0.12388436496257782,
+    "s8": -0.17328548431396484,
+    "s9": -0.1296045333147049,
+    "s11": -1.2350811958312988,
+    "s12": -0.13279539346694946,
+    "s13": 0.1659659743309021,
+    "s14": -0.1071181669831276,
+    "s15": -0.43902039527893066,
+    "s17": -0.13575740158557892,
+    "s20": -0.3469769060611725,
+    "s21": -0.17981791496276855
+  }
+}
