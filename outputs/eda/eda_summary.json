@@ -1,0 +1,77 @@
+{
+  "run_timestamp": "2026-05-17T18:23:13.395384",
+  "total_runtime_seconds": 77.17,
+  "total_plots_saved": 36,
+  "modules": {
+    "cmapss": {
+      "plots_saved": 20,
+      "runtime_seconds": 29.79,
+      "files": [
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD001_sensor_degradation_waves.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD001_rul_distribution.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD001_sensor_correlation.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD001_degradation_index.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD001_sensor_variance_ranking.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD002_sensor_degradation_waves.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD002_rul_distribution.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD002_sensor_correlation.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD002_degradation_index.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD002_sensor_variance_ranking.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD003_sensor_degradation_waves.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD003_rul_distribution.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD003_sensor_correlation.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD003_degradation_index.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD003_sensor_variance_ranking.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD004_sensor_degradation_waves.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD004_rul_distribution.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD004_sensor_correlation.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD004_degradation_index.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\cmapss\\FD004_sensor_variance_ranking.png"
+      ],
+      "status": "success"
+    },
+    "secom": {
+      "plots_saved": 6,
+      "runtime_seconds": 12.45,
+      "files": [
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\secom\\secom_class_imbalance.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\secom\\secom_pca_analysis.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\secom\\secom_feature_correlation.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\secom\\secom_feature_distributions.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\secom\\secom_missing_vs_failure.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\secom\\secom_feature_variance.png"
+      ],
+      "status": "success"
+    },
+    "ai4i": {
+      "plots_saved": 5,
+      "runtime_seconds": 25.48,
+      "files": [
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\ai4i\\ai4i_failure_type_donut.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\ai4i\\ai4i_temperature_vs_failure.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\ai4i\\ai4i_torque_speed_contour.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\ai4i\\ai4i_tool_wear_survival.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\ai4i\\ai4i_failure_correlation.png"
+      ],
+      "status": "success"
+    },
+    "unified": {
+      "plots_saved": 5,
+      "runtime_seconds": 9.44,
+      "files": [
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\unified\\unified_dataset_source_breakdown.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\unified\\unified_failure_rate_comparison.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\unified\\unified_rf_param_distributions.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\unified\\unified_rf_params_vs_failure.png",
+        "D:\\RF Engineering\\rf_sentinel\\outputs\\eda\\unified\\unified_correlation_heatmap.png"
+      ],
+      "status": "success"
+    }
+  },
+  "output_folders": {
+    "cmapss": "outputs/eda/cmapss/",
+    "secom": "outputs/eda/secom/",
+    "ai4i": "outputs/eda/ai4i/",
+    "unified": "outputs/eda/unified/"
+  }
+}
