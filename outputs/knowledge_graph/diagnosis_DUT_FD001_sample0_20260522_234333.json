@@ -1,0 +1,157 @@
+{
+  "timestamp": "2026-05-22T23:43:33.601844",
+  "device_id": "DUT_FD001_sample0",
+  "predicted_failure": "sensor_degradation",
+  "model_confidence": 99.9,
+  "primary_cause": "Bearing Wear",
+  "shap_evidence": [
+    {
+      "feature": "s11",
+      "shap_value": -1.235,
+      "symptom": "HPC Pressure Drop",
+      "direction": "toward_failure"
+    },
+    {
+      "feature": "s15",
+      "shap_value": -0.439,
+      "symptom": "Bypass Ratio Reduction",
+      "direction": "toward_failure"
+    },
+    {
+      "feature": "s20",
+      "shap_value": -0.347,
+      "symptom": "LPT Coolant Bleed Reduction",
+      "direction": "toward_failure"
+    },
+    {
+      "feature": "s3",
+      "shap_value": -0.325,
+      "symptom": "HPC Temperature Rise",
+      "direction": "toward_failure"
+    },
+    {
+      "feature": "s2",
+      "shap_value": -0.279,
+      "symptom": "LPT Temperature Rise",
+      "direction": "toward_failure"
+    }
+  ],
+  "repair_actions": [
+    {
+      "rank": 1,
+      "priority": "P1",
+      "action": "Inspect and Replace Bearing Assembly",
+      "cause": "Bearing Wear",
+      "confidence_pct": 99.7,
+      "estimated_time": "4 hours"
+    },
+    {
+      "rank": 2,
+      "priority": "P2",
+      "action": "Replace Internal Seals",
+      "cause": "Seal Degradation",
+      "confidence_pct": 78.7,
+      "estimated_time": "6 hours"
+    },
+    {
+      "rank": 3,
+      "priority": "P3",
+      "action": "Re-torque RF Connector",
+      "cause": "RF Connector Fault",
+      "confidence_pct": 77.8,
+      "estimated_time": "15 minutes"
+    },
+    {
+      "rank": 4,
+      "priority": "P3",
+      "action": "Replace RF Connector",
+      "cause": "RF Connector Fault",
+      "confidence_pct": 64.8,
+      "estimated_time": "30 minutes"
+    },
+    {
+      "rank": 5,
+      "priority": "P3",
+      "action": "Retest at 25\u00b0C Ambient",
+      "cause": "Bearing Wear",
+      "confidence_pct": 63.0,
+      "estimated_time": "1 hour"
+    }
+  ],
+  "knowledge_paths": [
+    {
+      "symptom_node": "s11_pressure_drop",
+      "symptom_label": "HPC Pressure Drop",
+      "cause_node": "bearing_wear",
+      "cause_label": "Bearing Wear",
+      "repair_node": "inspect_bearing",
+      "repair_label": "Inspect and Replace Bearing Assembly",
+      "repair_priority": "P1",
+      "repair_time": "4 hours",
+      "path_confidence": 0.8075,
+      "symptom_cause_weight": 0.85,
+      "cause_repair_weight": 0.95,
+      "final_score": 0.9973
+    },
+    {
+      "symptom_node": "s11_pressure_drop",
+      "symptom_label": "HPC Pressure Drop",
+      "cause_node": "seal_degradation",
+      "cause_label": "Seal Degradation",
+      "repair_node": "replace_seals",
+      "repair_label": "Replace Internal Seals",
+      "repair_priority": "P2",
+      "repair_time": "6 hours",
+      "path_confidence": 0.6375,
+      "symptom_cause_weight": 0.75,
+      "cause_repair_weight": 0.85,
+      "final_score": 0.7874
+    },
+    {
+      "symptom_node": "s11_pressure_drop",
+      "symptom_label": "HPC Pressure Drop",
+      "cause_node": "connector_fault",
+      "cause_label": "RF Connector Fault",
+      "repair_node": "retorque_connector",
+      "repair_label": "Re-torque RF Connector",
+      "repair_priority": "P1",
+      "repair_time": "15 minutes",
+      "path_confidence": 0.63,
+      "symptom_cause_weight": 0.7,
+      "cause_repair_weight": 0.9,
+      "final_score": 0.7781
+    },
+    {
+      "symptom_node": "s11_pressure_drop",
+      "symptom_label": "HPC Pressure Drop",
+      "cause_node": "connector_fault",
+      "cause_label": "RF Connector Fault",
+      "repair_node": "replace_connector",
+      "repair_label": "Replace RF Connector",
+      "repair_priority": "P2",
+      "repair_time": "30 minutes",
+      "path_confidence": 0.525,
+      "symptom_cause_weight": 0.7,
+      "cause_repair_weight": 0.75,
+      "final_score": 0.6484
+    },
+    {
+      "symptom_node": "s11_pressure_drop",
+      "symptom_label": "HPC Pressure Drop",
+      "cause_node": "bearing_wear",
+      "cause_label": "Bearing Wear",
+      "repair_node": "retest_at_ambient",
+      "repair_label": "Retest at 25\u00b0C Ambient",
+      "repair_priority": "P2",
+      "repair_time": "1 hour",
+      "path_confidence": 0.51,
+      "symptom_cause_weight": 0.85,
+      "cause_repair_weight": 0.6,
+      "final_score": 0.6299
+    }
+  ],
+  "graph_stats": {
+    "symptom_nodes_matched": 5,
+    "total_paths_found": 15
+  }
+}
